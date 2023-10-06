@@ -9,6 +9,7 @@ import ButtonShare from "./Components/ButtonShare";
 import Square from "./Components/Square";
 import Board from "./Components/Board";
 import Game from "./Components/Game";
+import FilterableProductTable from "./Components/FilterableProductTable";
 
 function App() {
     const [countApp, setCount] = useState(0);
@@ -31,6 +32,8 @@ function App() {
             {/*<Square />*/}
             <br/>
             <Game />
+            <br/>
+            <FilterableProductTable />
             {/*<Board />*/}
             {/*<header className="App-header">*/}
             {/*    <img src={logo} className="App-logo" alt="logo"/>*/}
