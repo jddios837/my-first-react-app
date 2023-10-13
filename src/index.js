@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AppAzureRoles from "./AzureRoles/AppAzureRoles";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import RickAndMortyApp from "./RickAndMortyApp";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <AppAzureRoles />
+    {/*<App />*/}
+    {/*<AppAzureRoles />*/}
+    <RickAndMortyApp />
   </React.StrictMode>
 );
 
