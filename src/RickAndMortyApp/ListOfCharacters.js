@@ -4,11 +4,12 @@ import {Card, Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useQuery} from "@tanstack/react-query";
 import SearchRickBar from "./SearchBar";
+import RickModal from "./RickModal";
 
 
 export default function ListOfCharacters() {
     const [filterText, setFilterText] = useState('');
-    const cols = [];
+    const [selectedCharacter, setSelectedCharacter] = useState(null);
 
     const {  status, error, isFetching, data } = useQuery({
         queryKey: ['characters'],
@@ -16,6 +17,13 @@ export default function ListOfCharacters() {
             .get("https://rickandmortyapi.com/api/character")
             .then((res) => res.data)});
 
+    const openModal = (character) => {
+        setSelectedCharacter(character);
+    };
+
+    const closeModal = () => {
+        setSelectedCharacter(null);
+    };
 
     return (
         <>
@@ -38,7 +46,10 @@ export default function ListOfCharacters() {
                                         <Card.Text>
                                             {item.species} - {item.status}
                                         </Card.Text>
-                                        <Button variant="primary">More Info...</Button>
+                                        <Button
+                                            variant="primary"
+                                            onClick={() => openModal(item)}
+                                        >More Info...</Button>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -46,6 +57,12 @@ export default function ListOfCharacters() {
                     })
                 )}
             </Row>
+
+            <RickModal
+                show={selectedCharacter !== null}
+                onHide={closeModal}
+                character={selectedCharacter}
+            />
         </>
     );
 }
