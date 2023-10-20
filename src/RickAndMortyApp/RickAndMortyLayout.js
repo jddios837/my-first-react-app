@@ -7,7 +7,7 @@ export default function RickAndMortyLayout() {
     return (
         <>
             <Row>
-                <h1>Rick And Morty App</h1>
+                <h1>Rick And Morty App GITHUB ACTION</h1>
             </Row>
             <Row>
                 <Col sm={4}>
