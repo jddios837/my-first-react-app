@@ -13,7 +13,6 @@ import FilterableProductTable from "./Components/FilterableProductTable";
 
 function App() {
     const [countApp, setCount] = useState(0);
-
     function handleAppClick() {
         setCount(countApp + 1);
     }
